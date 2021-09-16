@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { RouterExtensions } from '@nativescript/angular';
 import { ICurrency } from '../interfaces/currency';
+import { SelectCurrencyService } from '../services/select-currency.service';
 
 @Component({
   selector: 'SelectCurrency',
@@ -7,19 +9,20 @@ import { ICurrency } from '../interfaces/currency';
 })
 export class SelectCurrencyComponent implements OnInit {
 
-    currencies: ICurrency[] = [
-        {
-            name: 'European Union',
-            conversion: '1 EUR = 1.0000 EUR',
-            image: 'https://icons.iconarchive.com/icons/wikipedia/flags/1024/EU-European-Union-Flag-icon.png'
-        }
-    ];
+    currencies: ICurrency[];
+    position: number;
 
-    constructor() {
-    }
+    constructor(private router: RouterExtensions, private selectCurrencyService: SelectCurrencyService) {}
 
     ngOnInit(): void {
+        const state = this.router.router.getCurrentNavigation().extras.state;
+        this.currencies = state.currencies;
+        this.position = state.position;
     }
 
-  
+    selectCurrency(index: number) {
+        this.selectCurrencyService.setSelectedCurrency(this.position, this.currencies[index]);
+        this.router.back();
+    }
+
 }

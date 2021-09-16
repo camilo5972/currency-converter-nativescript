@@ -2,27 +2,33 @@
   <GridLayout height='30%'>
     <image src='~/app/assets/bcp.png' stretch='aspectFit' height='90'></image>
   </GridLayout>
-  <FLexboxLayout class="content" height='40%'>
-    <GridLayout class="container-inputs" columns='2*, *' rows='65, 65'>
-      <GridLayout class="container-input" columns='*' rows='24, 36' row='0' col='0'>
-        <label class='label-input' row='0' col='0' text="Tú envías:"></label>
-        <TextField maxLength='10' returnKeyType='done' keyboardType='number' row='1' col='0' hint='0' text="" color='black'></TextField>
+
+  <FLexboxLayout class='content' height='40%'>
+    <GridLayout class='container-inputs' columns='2*, *' rows='65, 65'>
+
+      <GridLayout class='container-input' columns='*' rows='24, 50' row='0' col='0'>
+        <label class='label-input' row='0' col='0' text='Tú envías:'></label>
+        <TextField (textChange)='onValueSendChange($event)' text='{{sendValue}}' maxLength='15' returnKeyType='done' keyboardType='number' row='1' col='0' hint='0' color='black'></TextField>
       </GridLayout>
-      <label class='label-currency' text='Dólares' row='0' col='1' (longPress)='selectCurrency(0)'></label>
-      <GridLayout class="container-input" columns='*' rows='24, 36' row='1' col='0'>
-        <label class='label-input' row='0' col='0' text="Tú recibes:"></label>
-        <TextField maxLength='10' returnKeyType='done' keyboardType='number' row='1' col='0' hint='0' text="" color='black'></TextField>
-      </GridLayout>
-      <label class='label-currency' text='Soles' row='1' col='1' (longPress)='selectCurrency(1)'></label>
-    </GridLayout>
-    <AbsoluteLayout>
-      <FLexboxLayout class="container-icon">
-        <image src='~/app/assets/refresh.png' stretch="fill" height="30" width="30" (tap)='switchCurrency()'></image>
+
+      <label class='label-currency' text='{{send?.currency}}' row='0' col='1' (longPress)='selectCurrency(0)'></label>
+
+      <FLexboxLayout class='container-icon' row='0' col='1' (tap)='switchCurrency()'>
+        <image src='~/app/assets/refresh.png' stretch='fill' height='30' width='30'></image>
       </FLexboxLayout>
-    </AbsoluteLayout>
-    <Label text='Compra: {{buy}} | venta: {{sell}}' height='30' class='label-buy-sell'></Label>
+
+      <GridLayout class='container-input' columns='*' rows='24, 36' row='1' col='0'>
+        <label class='label-input' row='0' col='0' text='Tú recibes:'></label>
+        <TextField [text]='sendValue ? receiveValue : null' maxLength='15' returnKeyType='done' keyboardType='number' row='1' col='0' hint='0' color='black'></TextField>
+      </GridLayout>
+
+      <label class='label-currency' text='{{receive?.currency}}' row='1' col='1' (longPress)='selectCurrency(1)'></label>
+
+    </GridLayout>
+    <Label *ngIf='receive && send' text='Compra: {{receive?.factor | sell}} | venta: {{receive?.factor}}' height='30' class='label-buy-sell'></Label>
   </FLexboxLayout>
-  <DockLayout stretchLastChild="false" height='30%'>
-    <Button height="60" class='button' text='Empieza tu operación' dock='bottom'></Button>
+
+  <DockLayout stretchLastChild='false' height='30%'>
+    <Button height='60' class='button' text='Empieza tu operación' dock='bottom'></Button>
   </DockLayout>
 </FlexboxLayout>
