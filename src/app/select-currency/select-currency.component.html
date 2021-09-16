@@ -1,0 +1,17 @@
+<ActionBar title='Monedas' flat='true' color='black'></ActionBar>
+<FlexboxLayout class='page-currency'>
+    <GridLayout height='20%'>
+      <image src='~/app/assets/bcp.png' stretch='aspectFit' height='90'></image>
+    </GridLayout>
+    <ListView [items]='currencies' class='list-group' separatorColor='transparent'>
+        <ng-template let-item='item' let-i='index'>
+          <GridLayout columns='*, 2*' rows='*'>
+            <image src='{{item.image}}' stretch='aspectFit' height='70' row='0' col='0'></image>
+            <StackLayout row='0' col='1' class='container-item-currency'>
+                <label [text]='item.name' class='label-title'></label>
+                <label [text]='item.conversion' class='label-description'></label>
+            </StackLayout>
+          </GridLayout>
+        </ng-template>
+    </ListView>
+</FlexboxLayout>

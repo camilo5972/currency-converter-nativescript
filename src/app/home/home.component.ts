@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
+import { RouterExtensions } from '@nativescript/angular';
 
 @Component({
   selector: 'Home',
@@ -9,8 +10,7 @@ export class HomeComponent implements OnInit {
   buy: number;
   sell: number;
 
-  constructor() {
-  }
+  constructor(private router: RouterExtensions) {}
 
   ngOnInit(): void {
   }
@@ -20,6 +20,10 @@ export class HomeComponent implements OnInit {
   }
 
   selectCurrency(position: number) {
-    alert('long ' + position);
+    this.router.navigate(['select-currency'], {
+      state: {
+        position
+      }
+    });
   }
 }

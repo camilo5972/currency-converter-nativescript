@@ -4,6 +4,11 @@
 /* Place any CSS rules you want to apply on both iOS and Android here.
 This is where the vast majority of your CSS code goes. */
 
+ActionBar {
+    background: white;
+    color: black;
+}
+
 label {
     color: black;
 }
@@ -42,6 +47,12 @@ TextField {
     padding-right: 5;
 }
 
+.page-currency {
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+}
+
 .label-currency {
     color: white;
     font-size: 16;
@@ -62,6 +73,11 @@ TextField {
     padding-left: 10;
 }
 
+.list-group {
+    margin-left: 20;
+    margin-right: 20;
+}
+
 .container-inputs {
     border-radius: 10;
 }
@@ -69,6 +85,19 @@ TextField {
 .container-input {
     border-width: 1;
     border-color: lightslategray;
+}
+
+.container-item-currency {
+    border-bottom-width: 1;
+    border-bottom-color: lightgrey;
+}
+
+.label-title {
+    font-weight: bold;
+}
+
+.label-description {
+    color: grey;
 }
 
 .container-icon {
