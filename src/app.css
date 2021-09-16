@@ -1,0 +1,85 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+/* Place any CSS rules you want to apply on both iOS and Android here.
+This is where the vast majority of your CSS code goes. */
+
+label {
+    color: black;
+}
+
+TextField {
+    border-bottom-width: 1;
+    border-bottom-color: transparent;
+    font-size: 15;
+    color: grey;
+    font-weight: bold;
+}
+
+.button {
+    background: #4DB0FD;
+    font-weight: bold;
+    width: 100%;
+    font-size: 16;
+}
+
+.container {
+    flex-direction: column;
+    flex: 1;
+}
+
+.content {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page {
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+    justify-content: center;
+    padding-left: 5;
+    padding-right: 5;
+}
+
+.label-currency {
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    background-color: #051637;
+    padding-left: 10;
+    border-width: 1;
+    border-color: lightslategray;
+}
+
+.label-buy-sell {
+    margin-top: 20;
+    align-self: center;
+}
+
+.label-input {
+    color: grey;
+    padding-left: 10;
+}
+
+.container-inputs {
+    border-radius: 10;
+}
+
+.container-input {
+    border-width: 1;
+    border-color: lightslategray;
+}
+
+.container-icon {
+    border-radius: 40;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 45;
+    width: 45;
+    top: -90;
+    left: 310;
+    z-index: 100;
+}
